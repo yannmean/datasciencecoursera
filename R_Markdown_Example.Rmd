@@ -1,0 +1,31 @@
+---
+title: "Statistical_Inference_Assignment"
+output: pdf_document
+---
+
+Assignment Part 1 
+
+```{r}
+library (knitr)
+library (ggplot2)
+
+```
+
+Create the dataframe contains 1000 simulation, each with 40 rexp generated 
+
+```{r}
+sim <- 1000
+n <- 40
+lambda <- 0.2
+simdata <- matrix(rexp(sim*n, rate = lambda), sim)
+```
+
+Calculate sample mean and theoretical mean.
+
+```{r}
+sample_mean <- apply(simdata, 1, mean)
+cal_sample_mean <- mean(sample_mean)
+theo_mean <- 1/lambda
+theo_sd <- (1/lambda)/(1/sqrt(n))
+```
+
